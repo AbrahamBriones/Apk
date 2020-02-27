@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "59869962769",
+    "firebase_url": "https://eduapp-proyect.firebaseio.com",
+    "project_id": "eduapp-proyect",
+    "storage_bucket": "eduapp-proyect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59869962769:android:e8b75d559ea94ec8b907b0",
+        "android_client_info": {
+          "package_name": "cl.ubiobio.eduapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59869962769-5hkbsisftpph9sihon5m5abc4plqfknc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3rxvQW9-GQGPq8y6Qnt7OGgkWYgSJNTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59869962769-5hkbsisftpph9sihon5m5abc4plqfknc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
