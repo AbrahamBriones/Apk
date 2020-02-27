@@ -60,8 +60,8 @@ var app = new Framework7({
       url: 'inasistencias.html',
     },
     {
-      path: '/cambiarContraseña/',
-      url: 'cambiarContraseña.html',
+      path: '/cambiarContrasenia/',
+      url: 'cambiarContrasenia.html',
     },
     {
       path: '/avisos/',

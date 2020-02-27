@@ -54,7 +54,7 @@ $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
               text: 'Cambiar contraseña',
               // color: 'red',
               onClick: function (){
-                app.router.navigate("/cambiarContraseña/");
+                app.router.navigate("/cambiarContrasenia/");
               }
             },
             {
