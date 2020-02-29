@@ -60,8 +60,8 @@ var app = new Framework7({
       url: 'inasistencias.html',
     },
     {
-      path: '/cambiarContraseña/',
-      url: 'cambiarContraseña.html',
+      path: '/cambiarContrasenia/',
+      url: 'cambiarContrasenia.html',
     },
     {
       path: '/avisos/',
@@ -69,7 +69,7 @@ var app = new Framework7({
     }, {
       path: '/materiales/',
       url: 'materiales.html',
-    },{
+    }, {
       path: '/listadoMateriales/',
       url: 'listadoMateriales.html',
     },
@@ -84,17 +84,17 @@ var mainView = app.views.create('.view-main');
 $$(document).on('deviceready', function () {
 
 
-  
+
   console.log(localStorage.getItem("usuario"));
-  if (localStorage.getItem("usuario")=="null"){
+  if (localStorage.getItem("usuario") == null || localStorage.getItem("usuario") == 'null') {
     app.router.navigate("/login/");
-    
-  }else{
+
+  } else {
     app.router.navigate("/inicio/");
   }
-  
+
   console.log("Device is ready!");
- 
+
 });
 // Funcion que detecta cuando se inicia y carga una página
 // Option 1. Using one 'page:init' handler for all pages
@@ -110,6 +110,10 @@ var intentardenuevo = new Framework7({
     buttonOk: 'Intentar de nuevo',
   }
 });
+
+
+
+var pageHistory = []; $(document).on("deviceready", onDeviceReady); function onDeviceReady() { $(document).on("pagecontainerload", onPageLoad); $(document).on("backbutton", onBackButton); } function onBackButton(e) { e.preventDefault(); pageHistory.pop(); if (pageHistory.length == 0) { navigator.app.exitApp(); } else { navigator.app.backHistory(); } } function onPageLoad(e, ui) { var pageId = ui.toPage.attr('id'); if (pageId !== pageHistory[pageHistory.length]) { pageHistory.push(pageId); } }
 
 var server = 'http://parra.chillan.ubiobio.cl:8075/abraham.briones1501/public/';
 var storageServer = 'http://parra.chillan.ubiobio.cl:8075/abraham.briones1501/storage/app/public/';

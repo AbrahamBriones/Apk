@@ -13,12 +13,15 @@ $.getJSON(server+'api/materialPorCurso/movil/'+localStorage.getItem("id_curso"),
 
         if( data[0].descripcion_curso !== null){
 
-            html='';
-            html+='<div class="block block-strong tablet-inset">';
-            html+='<p id="descripcion-curso">'+data[0].descripcion_curso+'</p>'; 
-            html+='</div>'; 
-            $("#descripcion").append(html);
+            //html='';
+            //html+='<div class="block block-strong tablet-inset">';
+            //html+='<p id="descripcion-curso">'+data[0].descripcion_curso+'</p>'; 
+            //html+='</div>'; 
+            //$("#descripcion").append(html);
+            console.log(data[0].descripcion_curso);
             $("#titulo-materiales").append(data[0].nombre_asignatura);
+            $("#asignatura-listado").append(data[0].nombre_asignatura+'<br><br>'+data[0].descripcion_curso);
+            //$("#asignatura-listado").append('<br>'+data[0].descripcion_curso);
         }
        
     }
@@ -29,18 +32,36 @@ $.getJSON(server+'api/materialPorCurso/movil/'+localStorage.getItem("id_curso"),
     .done(function (response) {
         
         html = '';
+        htmlListado='';
         var extension;
+        var des;
         $.each(response, function (index, element) {
            
             extension=element.path.split('.');
-            html+='<div class="card" id="material_'+element.id_curso+'"">';
-            html += '<div class="card-content card-content-padding tarjeta-material"><br><img src="imagenes/'+formatoArchivo(extension[1])+'" width="30px"> <b>'+element.nombre_material+'</b><br><b>Archivo:</b><a  class="link external no-ripple" target="_blank" href="'+storageServer+element.path+'"> '+element.path+'</a><br><b>Descripcion:</b> '+element.descripcion+'</div>';
-            html += '</div>';
+            //html+='<div class="card" id="material_'+element.id_curso+'"">';
+            //html += '<div class="card-content card-content-padding tarjeta-material"><br><img src="imagenes/'+formatoArchivo(extension[1])+'" width="30px"> <b>'+element.nombre_material+'</b><br><b>Archivo:</b><a  class="link external no-ripple" target="_blank" href="'+storageServer+element.path+'"> '+element.path+'</a><br><b>Descripcion:</b> '+element.descripcion+'</div>';
             //html += '</div>';
-            
+            //html += '</div>';
+            if(element.descripcion==null){
+              des='';
+            }else{
+                des=element.descripcion;  
+            }
+            htmlListado='<li class="item-content" id="material_'+element.id_curso+'" >';
+            htmlListado+='<div class="item-media"><img src="imagenes/'+formatoArchivo(extension[1])+'" width="44"/></div>';
+            htmlListado+=' <div class="item-inner">';
+            htmlListado+='<div class="item-title-row">';
+            htmlListado+='<div class="item-title"><b>'+element.nombre_material+'</b></div>';
+            htmlListado+='</div>';
+            htmlListado+='<div class="item-subtitle">Archivo: <a  class="link external no-ripple" target="_blank" href="'+storageServer+element.path+'"> '+element.path+'</a></div>';
+            htmlListado+='<div class="item-subtitle">Descripcion: '+des+'</div>';
+            htmlListado+='</div>';
+            htmlListado+='</li>';
         })
-        console.log(html);
-        $("#contenido-listado-materiales").append(html);
+        console.log(htmlListado);
+        $("#contenido-listado-materiales").append(htmlListado);
+        //$("#contenido-listado-materiales").append(html);
+        
     })
     .fail(function () {
          //Info es cuando guarde el arreglo sin conexión, todavia no lo hago

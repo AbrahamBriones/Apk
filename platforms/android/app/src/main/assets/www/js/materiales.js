@@ -44,7 +44,7 @@ $$(document).on('page:init', '.page[data-name="materiales"]', function (e) {
     function obtenerAsignaturas(semestre, anyo) {
     //$("#resumenNotas").empty();
     $.getJSON(server+'api/material/asignatura/' + localStorage.getItem("alumno") + '/' + semestre + '/' + anyo, function (data) {
-      // console.log(JSON.stringify(data));
+      console.log(JSON.stringify(data));
       if (JSON.stringify(data) == '[]') {
          app.dialog.alert('No existen Asignaturas en el período seleccionado', 'Sin registros', function () {
          });

@@ -1,7 +1,12 @@
 //Funcion que detecta cuando se inicia y carga el hmtl "inicio"
 $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
-  $.getJSON(server+'api/alumnosporapoderado/30', function (data) {
-  // $.getJSON('http://127.0.0.1:8000/api/alumnosporapoderado/' + localStorage.getItem("usuario"), function (data) {
+
+  var mensajecerrarSesion = app.toast.create({
+    text: 'Sesión cerrada',
+    closeTimeout: 2000,
+  });
+  // $.getJSON(server+'api/alumnosporapoderado/30', function (data) {
+  $.getJSON(server+'api/alumnosporapoderado/' + localStorage.getItem("usuario"), function (data) {
     //Si existen datos
     if (typeof data !== 'undefined' && data.length > 0) {
       // the array is defined and has at least one element
@@ -61,6 +66,7 @@ $$(document).on('page:init', '.page[data-name="inicio"]', function (e) {
               text: 'Cerrar sesión',
               color: 'red',
               onClick: function () {
+                mensajecerrarSesion.open();
                 localStorage.setItem("usuario", null);
                 localStorage.setItem("alumno", null);
                 localStorage.setItem("info_actividades", null);
@@ -96,6 +102,6 @@ $$(document).on('page:init', '.page[data-name="inicioAux"]', function (e) {
 })
 
 
-function cambiarContraseña (){
-  alert("hola");
-}
+// function cambiarContraseña (){
+//   alert("hola");
+// }

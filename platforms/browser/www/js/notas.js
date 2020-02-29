@@ -57,9 +57,9 @@ $$(document).on('page:init', '.page[data-name="notas"]', function (e) {
         $.each(response, function (index, element) {
 
           var nombresProfesor = element.profesor.split(' ');
-          html += '<ul>';
+          html += '<ul  >';
           html += '<li>';
-          html += '<a href="' + element.id_curso + '" class="item-link item-content" id="detalle">';
+          html += '<a href="' + element.id_curso + '" class="item-link item-content no-ripple" id="detalle">';
           html += '<div class="item-media"><h2><span class="'+element.asignatura.charAt(0).toUpperCase()+'circulo">' + element.asignatura.charAt(0) + '</span></h2></div>';
           html += '<div class="item-inner">';
           html += '<div class="item-title" id="asignatura">' + element.asignatura;
